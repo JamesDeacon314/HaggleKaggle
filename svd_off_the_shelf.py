@@ -11,11 +11,9 @@ train_data = train_data.build_full_trainset()
 df_test = pd.read_csv("data/test.txt", delimiter="\t", encoding="latin_1",
 header = None)
 df_test = df_test[df_test.iloc[:,1].isin(rated_movies)]
-train_data = Dataset.load_from_df(df_test, Reader())
+test_data = Dataset.load_from_df(df_test, Reader())
 
 algo = SVD()
 algo.fit(train_data)
 U = algo.pu
 V = algo.qi
-print(U)
-print(V)
