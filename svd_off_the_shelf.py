@@ -15,5 +15,7 @@ test_data = Dataset.load_from_df(df_test, Reader())
 
 algo = SVD()
 algo.fit(train_data)
+predictions = algo.predict(test_data)
+accuracy.rmse(predictions, verbose=True)
 U = algo.pu
 V = algo.qi
